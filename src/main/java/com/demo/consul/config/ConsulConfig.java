@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import com.google.common.net.HostAndPort;
 import com.orbitz.consul.AgentClient;
 import com.orbitz.consul.Consul;
+import com.orbitz.consul.HealthClient;
 import com.orbitz.consul.KeyValueClient;
 
 
@@ -24,6 +25,10 @@ public class ConsulConfig {
 	@Bean("keyValueClient")
 	KeyValueClient getKeyValueClient(){
 		return  consul.keyValueClient();
+	}
+	@Bean("healthClient")
+	HealthClient getHealthClient(){
+		return  consul.healthClient();
 	}
 	@Bean("consul")
 	Consul getConsul(){
